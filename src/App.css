@@ -1,38 +1,288 @@
-.App {
-  text-align: center;
+body{
+  overflow-x: hidden;
+}
+.user,
+.fa-user {
+  font-size: 14px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #a0a3a7;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.d-flex:hover a,
+.d-flex:hover i {
+  color: rgb(236, 118, 8);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  border: transparent;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.btn-age {
+  background: linear-gradient(0deg, rgba(255, 151, 0, 1) 0%, rgba(251, 75, 2, 1) 100%);
   color: white;
+  font-weight: 400;
+  border: transparent;
+  padding: 6px 8px 8px;
+  border-radius: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+.title-movie {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 400;
+  padding-bottom: 3px;
+  border-bottom: 2px solid rgb(236, 118, 8);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.fa-star {
+  color: rgb(236, 118, 8);
+}
+
+.custom-btn {
+  margin: 2px 0;
+  height: 40px;
+  padding: 0 20px;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
+  outline: none;
+}
+
+.btn-4 {
+  background: rgb(0, 172, 238);
+  height: 40px;
+  line-height: 42px;
+  border: none;
+}
+
+.btn-3 {
+  background: linear-gradient(0deg, rgba(255, 151, 0, 1) 0%, rgba(251, 75, 2, 1) 100%);
+  height: 40px;
+  line-height: 42px;
+  border: none;
+
+}
+
+
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgba(251, 75, 2, 1);
+  transition: all 0.3s ease;
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9),
+    -4px -4px 5px 0px rgba(255, 255, 255, .9),
+    7px 7px 20px 0px rgba(0, 0, 0, .2),
+    4px 4px 5px 0px rgba(0, 0, 0, .3);
+  transition: all 0.3s ease;
+  ;
+}
+
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btn-3:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn-3:hover:before {
+  height: 100%;
+}
+
+.btn-3:hover:after {
+  width: 100%;
+}
+
+.btn-3 a,
+.btn-3 span {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-3:hover a,
+.btn-3:hover span {
+  color: rgba(251, 75, 2, 1);
+
+}
+
+.btn-3 a:before,
+.btn-3 a:after,
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgba(251, 75, 2, 1);
+  transition: all 0.3s ease;
+}
+
+.btn-3 a:before,
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+
+.btn-3 a:after,
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btn-3 a:hover:before,
+.btn-3 span:hover:before {
+  height: 100%;
+}
+
+.btn-3 a:hover:after,
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+.ticket {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.ticket button {
+  width: 20px;
+  height: 20px;
+}
+
+input[type=checkbox]:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  left: 14px;
+  border-radius: 5px;
+  position: absolute;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  border: 3px solid  black;
+  box-shadow: inset 0px 2px 3px 0px rgb(0 0 0 / 30%), 0px 1px 0px 0px rgb(255 255 255 / 80%);
+  -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -webkit-box-shadow: inset 0px 2px 3px 0px rgb(0 0 0 / 30%), 0px 1px 0px 0px rgb(255 255 255 / 80%);
+  background-color: #ffffff;
+}
+input[type=checkbox]:checked:before {
+  background-color: rgb(21, 185, 21);
+  font-size: 15px;
+  border: 3px solid  rgba(251, 75, 2, 1);
+}
+input[type=checkbox] {
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.ticketa{
+ background-color: #d7dce1;
+}
+.grap{
+  height: 30px;
+}
+td{
+  font-weight: bold;
+}
+.side{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.sideS:nth-child(1){
+  margin-top:18px;
+}
+.sideS{
+  width: 100%;
+  display: inline-block;
+  margin-top: 18.5px;
+  background-color: none;
+}
+
+
+
+
+@media only screen and (min-width: 320px) {
+  .num{
+    padding: 0;
   }
-  to {
-    transform: rotate(360deg);
+  input[type=checkbox]:before{
+    left:5px;
+    width: 20px;
+    height:20px;
+  }
+  .back{
+    margin-right: 4px;
+  }
+  .ticket{
+    width: 100%;
   }
 }
+
+
+@media only screen and (min-width: 768px) {
+  input[type=checkbox]:before{
+    left: 6px;
+    width: 25px;
+   height: 25px;
+  }
+  .back{
+    margin-right: 10px;
+  }
+
+}
+
+@media only screen and (min-width: 992px) {
+  input[type=checkbox]:before{
+    left: 20px;
+  }
+  .ticket{
+    width: 60%;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  input[type=checkbox]:before{
+    left: 14px;
+  }
+
+} 
+
+

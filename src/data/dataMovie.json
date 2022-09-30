@@ -1,0 +1,40 @@
+[
+    {
+        "id":1,
+        "name": "AVATAR",
+        "image": "https://cdn.galaxycine.vn/media/2022/8/29/1350x900_1661758472078.jpg",
+        "age": "C13"
+    },
+    
+    {
+        "id":2,
+        "name": "Bỗng Dưng Trúng Số",
+        "image": "https://cdn.galaxycine.vn/media/2022/9/14/1350wx900h_1663128397452.jpg",
+        "age": "C13"
+    },
+    
+    {
+        "id":3,
+        "name": "LOVE DESTINY THE MOVIE",
+        "image": "https://cdn.galaxycine.vn/media/2022/8/30/1350wx900h_1661793922507.jpg",
+        "age": "C13"
+    },
+    {
+        "id":4,
+        "name": "TRÒ CHƠI TỬ THẦN",
+        "image": "https://cdn.galaxycine.vn/media/2022/9/21/1350wx900h_1663738531976.jpg",
+        "age": "C16"
+    },
+    {
+        "id":5,
+        "name": "JEEPERS CREEPERS: REBORN",
+        "image": "https://cdn.galaxycine.vn/media/2022/9/6/ke-san-lung-so-hai-tai-sinh_1662452228793.jpg",
+        "age": "C18"
+    },
+    {
+        "id":6,
+        "name": "SATAN'S SLAVES 2",
+        "image": "https://cdn.galaxycine.vn/media/2022/9/14/450wx300h_1663145031072.jpg",
+        "age": "C18"
+    }
+]
