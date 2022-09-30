@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 class BuyMovieTicket extends Component {
-    
+
     renderCol = () => {
         return this.props.dataChair.map((chair) => {
             return <span className='sideS col-1 ' key={chair.hang}>{chair.hang}</span>
@@ -12,7 +12,7 @@ class BuyMovieTicket extends Component {
         return this.props.dataChair.map((chairs, index) => {
             if (index === 0) {
                 return chairs.danhSachGhe.map((chair) => {
-                    return <span key={chair.soGhe} className='col-1 my-2 btn-row text-center num' >{chair.soGhe}</span>              
+                    return <span key={chair.soGhe} className='col-1 my-2 btn-row text-center num' >{chair.soGhe}</span>
                 })
             }
         })
@@ -21,16 +21,22 @@ class BuyMovieTicket extends Component {
         return this.props.dataChair.map((chairs, index) => {
             if (index > 0) {
                 return chairs.danhSachGhe.map((chair) => {
-                    return <input key={chair.soGhe}  onClick={() => { 
-                        const action ={
-                            type:'CHON_GHE',
-                            ticket: chair.soGhe
+                    return <input key={chair.soGhe} onClick={() => {
+                        const action = {
+                            type: 'CHON_GHE',
+                            ticket: chair,
+                            isGo: chair.daDat = true
                         }
                         this.props.dispatch(action)
-                     }}
-                    className="col-1" type="checkbox" name='ticket' value={chair.soGhe} />
+                    }}
+                        className="col-1" type="checkbox" name='ticket' value={chair.soGhe} />
                 })
             }
+        })
+    }
+    renderTicket = () => {
+        return this.props.chair.map((checked) => {
+            return <span key={checked.soGhe}>{checked.soGhe} </span>
         })
     }
     render() {
@@ -72,11 +78,11 @@ class BuyMovieTicket extends Component {
                                 </div>
                             </div>
                             <div className="text-center pb-4">
-                                <button className="custom-btn btn-4 back" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" 
-                                        style={{ marginRight: 20 }}>Back To Buy Tickets
+                                <button className="custom-btn btn-4 back" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                                    style={{ marginRight: 20 }}>Back To Buy Tickets
                                 </button>
-                                <button className="custom-btn btn-3"  
-                                data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"><span>Confirm Selection</span></button>
+                                <button className="custom-btn btn-3"
+                                    data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"><span>Confirm Selection</span></button>
                             </div>
                         </div>
                     </div>
@@ -92,46 +98,42 @@ class BuyMovieTicket extends Component {
                                 <table className="table table-dark table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Tên Phim</th>                   
-                                            <th scope="col">Number of Seats</th>                   
+                                            <th scope="col">Number of Seats</th>
                                             <th scope="col">Seats</th>
                                             <th scope="col">Total Money</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td className="table-info">{this.props.movie} </td>
                                             <td className="table-info">{(this.props.chair).length}</td>
-                                            <td className="table-info">{this.props.chair}</td>
+                                            <td className="table-info">{this.renderTicket()} </td>
                                             <td className="table-info">
-                                                {(((this.props.chair).length)*75000).toLocaleString()}vnđ
+                                                {(((this.props.chair).length) * 75000).toLocaleString()}vnđ
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            
+
                             </div>
                             <div className="modal-footer">
-                                <button type="button"className="custom-btn btn-3"
-                                        data-bs-dismiss="modal" aria-label="Close" 
-                                        style={{ marginRight: 20 }}><span>Finsh</span>
+                                <button type="button" className="custom-btn btn-3"
+                                    data-bs-dismiss="modal" aria-label="Close"
+                                    style={{ marginRight: 20 }}><span>Finsh</span>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         )
     }
 }
 
-const mapStateToProps = (rootReducer)=>{
-    return{
-        movie: rootReducer.movieReducer,
+const mapStateToProps = (rootReducer) => {
+    return {
         chair: rootReducer.chairReducer
     }
-   
+
 }
 
 const ComponentMovieRedux = connect(mapStateToProps)(BuyMovieTicket)

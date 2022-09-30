@@ -4,8 +4,8 @@ import ProductItem from './ProductItem'
 export default class ProductList extends Component {
     renderMovie = () => {
         return this.props.movies.map((movie) => {
-            return <div className="col-12 col-sm-6 col-lg-4 col-xl-4 pb-4" 
-                    key={movie.id}>
+            return <div className="col-12 col-sm-6 col-lg-4 col-xl-4 pb-4"
+                key={movie.id}>
                 <ProductItem movies={movie} />
             </div>
         })
@@ -13,12 +13,11 @@ export default class ProductList extends Component {
     render() {
         return (
             <div className="container py-2 ">
-                    <div> 
-                        <span className='title-movie'>Phim Đang Chiếu</span>
-                    </div>
+                <div>
+                    <span className='title-movie'>Phim Đang Chiếu</span>
+                </div>
                 <div className="row py-2">
                     {this.renderMovie()}
-
                 </div>
             </div>
         )

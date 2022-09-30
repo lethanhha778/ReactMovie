@@ -10,14 +10,14 @@ import Footer from './Footer'
 
 
 export default class HomeCinema extends Component {
-   
+
     render() {
         return (
             <div>
                 <Header />
                 <Banner />
                 <ProductList movies={dataMovie} />
-                <BuyMovieTicket dataChair={dataChair}/>         
+                <BuyMovieTicket dataChair={dataChair} />
                 <Footer />
             </div>
 
