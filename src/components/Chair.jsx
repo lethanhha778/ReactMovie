@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
-export default class Chair extends Component {
+class Chair extends Component {
 
   renderChair = () => {
     return this.props.rowChair.danhSachGhe.map((chair, index) => {
@@ -10,14 +11,21 @@ export default class Chair extends Component {
         styleSelected = 'gheDuocChon'
         disable = true
       }
-      // let styleReserved = ''
-      // let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(gheDangdat => gheDangdat.soGhe === ghe.soGhe)
-      // if(indexGheDangDat !== -1){
-      //   styleReserved = 'gheDangChon'
-      // }
+      let styleReserved = ''
+      let indexReserved = this.props.chairLists.findIndex(reserved => reserved.soGhe === chair.soGhe)
+      if(indexReserved !== -1){
+        styleReserved = 'gheDangChon'
+      }
 
-      return <button onClick={() => { alert(1) }}
-        disabled={disable} key={index} className={`ghe ${styleSelected}`}>
+      return <button onClick={() => { 
+        const action ={
+          type:'DAT_VE',
+          ticketMovie:chair
+      }
+      console.log(chair)
+      this.props.dispatch(action)
+      }}
+        disabled={disable} key={index} className={`ghe ${styleSelected} ${styleReserved}`}>
         {chair.soGhe}
       </button>
     })
@@ -32,7 +40,6 @@ export default class Chair extends Component {
 
   }
   renderRowChair = () => {
-    console.log(this.props)
     if (this.props.indexRowChair === 0) {
       return <div className='ml-4'>
          {this.props.rowChair.hang} {this.renderNumberRow()}
@@ -46,9 +53,16 @@ export default class Chair extends Component {
   }
   render() {
     return (
-      <div className='text-left ml-5 mt-3' style={{ fontSize: 18 }}>
+      <div className='text-right ml-5 mt-3' style={{ fontSize: 18 }}>
         {this.renderRowChair()}
       </div>
     )
   }
 }
+const mapStateToProps = (rootReducer) => {
+  return{ 
+    chairLists:rootReducer.movieReducer.chairLists
+  }
+}
+export default connect(mapStateToProps)(Chair)
+

@@ -1,7 +1,6 @@
 import { combineReducers, createStore } from 'redux';
-import { chairReducer } from './reducer/chairReducer';
+import { movieReducer } from './reducer/movieReducer';
 const rootReducer = combineReducers({
-
-    chairReducer
+   movieReducer
 })
 export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

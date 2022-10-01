@@ -16,7 +16,7 @@ export default class ProductItem extends Component {
                             <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
                             <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
                         </p>
-                        <button
+                        <button 
                             className="custom-btn btn-3 add" data-bs-toggle="modal" href="#exampleModalToggle2"><span>Mua Vé</span></button>
                     </div>
                 </div>

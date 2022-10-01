@@ -273,7 +273,7 @@ td{
     left: 20px;
   }
   .ticket{
-    width: 60%;
+    width: 70%;
   }
 }
 
@@ -296,13 +296,12 @@ td{
 
 
 .ghe{
-  background-color: white;
-  border: 3px solid orange;
+  background-color: #dbdee1;
+  border: 3px solid #dbdee1;
   width: 40px;
   height: 40px;
   font-size: 12px;
   margin-left: 2%;
-  margin-bottom: 1%;
   border-radius: 5px;
 }
 
@@ -313,7 +312,7 @@ td{
   background: none;
   border:none;
   margin-left: 2%;
-  margin-bottom: 1%;
+  /* margin-bottom: 1%; */
   font-size: 18px;
   color: black;
   
@@ -326,7 +325,7 @@ td{
 }
 
 .screen{
-  border-bottom: 50px solid rgb(255, 159, 95);
+  border-bottom: 50px solid rgba(251, 75, 2, 1);
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   height: 20px;
@@ -343,8 +342,8 @@ td{
 }
 
 .gheDuocChon {
-  border: 3px solid orange;
-  background: orange;
+  border: 3px solid #e11c01;
+  background: #e11c01;
   color: #000;
   cursor: no-drop !important;
   border-radius: 5px;
@@ -354,13 +353,24 @@ td{
 }
 
 .gheDangChon {
-  background: rgb(109, 238, 109);
-  border: 3px solid rgb(109, 238, 109);
+  background: #7dc71d;
+  border: 3px solid #7dc71d;
   color: #000;
 
   cursor: pointer;
   border-radius: 5px;
-  width: 45px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
+
+}
+.gheDoi{
+  background: #0cbfca;
+  border: 3px solid #0cbfca;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+
 
 }

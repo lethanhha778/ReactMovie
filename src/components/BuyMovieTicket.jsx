@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
 import dataChair from '../data//dataChair.json'
 import Chair from './Chair'
 import TickectInfo from './TickectInfo'
 
-class BuyMovieTicket extends Component {
+ class BuyMovieTicket extends Component {
 
     renderHangGhe = () => {
         return dataChair.map((rowChair, index) => {
@@ -26,14 +27,11 @@ class BuyMovieTicket extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className='ticket'>
-                                    <button className='gheDangChon'></button> <h6 className='font-weight-bold'> Selected Seat</h6>
-                                    <button className='gheDuocChon'></button> <h6 className='font-weight-bold'> Reserved Seat</h6>
-                                    <button className='ghe'></button><h6 className='font-weight-bold'>Empty Seat</h6>
+                                    <button className='gheDangChon'></button> <h6 className='font-weight-bold'> Ghế Đang Chọn</h6>
+                                    <button className='gheDuocChon'></button> <h6 className='font-weight-bold'> Ghế Đã Bán</h6>
+                                    <button className='gheDoi'></button><h6 className='font-weight-bold'>Ghế Đôi</h6>
+                                    <button className='ghe'></button><h6 className='font-weight-bold'>Có Thể Chọn</h6>
                                 </div>
-
-                                <h5 className='text-center my-2' style={{ backgroundColor: 'rgba(251, 75, 2, 1)', color: 'white' }}>
-                                    Please Select your Seats NOW!
-                                </h5>
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-12 text-center">
@@ -45,46 +43,23 @@ class BuyMovieTicket extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="text-center pb-4">
-                                <button className="custom-btn btn-4 back" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-                                    style={{ marginRight: 20 }}>Back To Buy Tickets
-                                </button>
-                                <button className="custom-btn btn-3"
+                            <div className="text-center pb-4">                           
+                                <button 
+                                 className="custom-btn btn-3"
                                     data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"><span>Confirm Selection</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabIndex={-1}>
-                    <div className="modal-dialog modal-dialog-centered  modal-md">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalToggleLabel">Tickects</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                            </div>
-                            <div className="modal-body ">
-                                <TickectInfo />
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="custom-btn btn-3"
-                                    data-bs-dismiss="modal" aria-label="Close"
-                                    style={{ marginRight: 20 }}><span>Finsh</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <TickectInfo/>
             </div>
         )
     }
 }
-
 const mapStateToProps = (rootReducer) => {
-    return {
-        chair: rootReducer.chairReducer.danhSachGhe
+    return{ 
+        chairLists: rootReducer.movieReducer.chairLists,
+        money:rootReducer.movieReducer.money
     }
-
-}
-
-const ComponentMovieRedux = connect(mapStateToProps)(BuyMovieTicket)
-export default ComponentMovieRedux;
+  }
+  export default connect(mapStateToProps)(BuyMovieTicket)
