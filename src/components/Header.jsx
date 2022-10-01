@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 
 export default class Header extends Component {
+    name= 'Mentor'; 
+    state={
+        login:false
+    }
+    login =()=>{
+        this.setState({
+            login:true
+        })
+    }
+ 
     render() {
         return (
             <nav className="navbar navbar-expand-lg bg-light py-3">
@@ -15,7 +25,14 @@ export default class Header extends Component {
                                 <a className="nav-link active" aria-current="page" href="#!">Home</a>
                             </li>
                             <li className="nav-item dropdown px-2">
-                                <a className="nav-link dropdown-toggle" href="#!">Phim</a>
+                            <a className="nav-link dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Phim
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#!">Phim Đang Chiếu</a></li>
+                                    <li><a className="dropdown-item" href="#!">Phim Sắp Lên Rạp</a></li>               
+                                    <li><a className="dropdown-item" href="#!">Phim Hot Của Tháng</a></li>
+                                </ul>
                             </li>
                             <li className="nav-item dropdown px-2">
                                 <a className="nav-link dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,7 +47,8 @@ export default class Header extends Component {
                          
                         </ul>
                         <form className="d-flex" role="search">
-                            <i style={{fontSize:14, marginTop:4}} className="fa-solid fa-user" /><a href='#!' className='user'>Đăng Nhập</a>
+                            <i style={{fontSize:14, marginTop:4}} className="fa-solid fa-user" />
+                                {this.state.login ? <h6 className='user mt-1'>Hello {this.name}</h6>: <button style={{border:'none',background:'none'}} className='user' onClick={this.login}>Đăng Nhập</button>}
                         </form>
                     </div>
                 </div>

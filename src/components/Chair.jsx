@@ -33,7 +33,7 @@ class Chair extends Component {
 
   renderNumberRow  = () => {
     return this.props.rowChair.danhSachGhe.map((hang,index) => {
-      return <button className='rowNumber' key={`hang ${index}`}>
+      return <button className='rowNumber ' key={`hang ${index}`}>
         {hang.soGhe}
       </button>
     })

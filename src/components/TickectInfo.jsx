@@ -11,17 +11,16 @@ class TickectInfo extends Component {
     render() {
         console.log(this.totalTicket());
         return (
-            <div className="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabIndex={-1}>
+            <div className="modal fade " id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabIndex={-1}>
                 <div className="modal-dialog modal-dialog-centered  modal-md">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalToggleLabel">Tickects</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                            <h4 className="modal-title" id="exampleModalToggleLabel">Tickects</h4>    
                         </div>
                         <div className="modal-body ">
-                            <table className='table table-bordered'>
+                            <table className='table table-bordered text-center'>
                                 <thead>
-                                    <tr style={{fontSize:16}}>
+                                    <tr style={{fontSize:20} }>
                                         <td>Số Ghế</td>
                                         <td>Giá</td>
                                     </tr>
@@ -30,13 +29,13 @@ class TickectInfo extends Component {
                                     {this.props.chairLists.map((ghe, index) => {
                                         return <tr key={index}>
                                                 <td >{ghe.soGhe}</td>
-                                                <td>{(ghe.gia).toLocaleString()}vnđ</td>
+                                                <td>{(ghe.gia).toLocaleString()} <sup>vnđ</sup></td>
                                         </tr>
                                     })}
                                 </tbody>
                             </table>
                             <div className="modal-footer">
-                                <span style={{ fontWeight: 'bold' }}>Tổng Tiền:</span> <span>{this.totalTicket().toLocaleString()}vnđ</span>
+                                <span style={{ fontWeight: 'bold' }}>Tổng Tiền: {this.totalTicket().toLocaleString()}<sup>vnđ</sup></span>
                             </div>
                             <div className="modal-footer">
                                 <button onClick={() => {
