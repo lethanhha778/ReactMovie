@@ -1,25 +1,20 @@
-const chair = []
+const chair = {
+  danhSachGhe:[]
+
+}
 export const chairReducer = (state = chair, action) => {
     switch (action.type) {
-        case 'CHON_GHE':
-            let chairFind = state.find((sp) => {
-                return sp.soGhe === action.ticket.soGhe
-            });
-            console.log(chairFind);
-            if (chairFind ) {
-                let indexChair = state.indexOf(chairFind)
-                console.log(indexChair);
-                state.slice(indexChair, 1)
-                
-                console.log(state)
-                // ko xóa đc khỏi mảng state
-            }
-            else {
-                let spGH = action.ticket;
-                state.push(spGH)
-            }
-            console.log(state)
-            return [...state];
+      case 'DAT_GHE': {
+        let danhSachGheDangDatUpdate = [...state.danhSachGheDangDat]
+        let index = danhSachGheDangDatUpdate.findIndex(gheDangDat => gheDangDat.soGhe === action.ghe.soGhe);
+        if (index !== -1) {
+            danhSachGheDangDatUpdate.splice(index, 1)
+        } else {
+            danhSachGheDangDatUpdate.push(action.ghe)
+        }
+        state.danhSachGheDangDat = danhSachGheDangDatUpdate;
+        return { ...state }
+    }
         default:
             return state;
     }

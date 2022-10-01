@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import dataMovie from '../data/dataMovie.json'
-import dataChair from '../data//dataChair.json'
 
 import Banner from './Banner'
 import Header from './Header'
@@ -17,7 +16,7 @@ export default class HomeCinema extends Component {
                 <Header />
                 <Banner />
                 <ProductList movies={dataMovie} />
-                <BuyMovieTicket dataChair={dataChair} />
+                <BuyMovieTicket />
                 <Footer />
             </div>
 

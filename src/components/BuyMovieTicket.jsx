@@ -1,44 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import dataChair from '../data//dataChair.json'
+import Chair from './Chair'
+import TickectInfo from './TickectInfo'
 
 class BuyMovieTicket extends Component {
 
-    renderCol = () => {
-        return this.props.dataChair.map((chair) => {
-            return <span className='sideS col-1 ' key={chair.hang}>{chair.hang}</span>
+    renderHangGhe = () => {
+        return dataChair.map((rowChair, index) => {
+            return <div key={index} >
+                <Chair rowChair={rowChair} indexRowChair={index} />
+            </div>
         })
     }
-    renderRow = () => {
-        return this.props.dataChair.map((chairs, index) => {
-            if (index === 0) {
-                return chairs.danhSachGhe.map((chair) => {
-                    return <span key={chair.soGhe} className='col-1 my-2 btn-row text-center num' >{chair.soGhe}</span>
-                })
-            }
-        })
-    }
-    renderChair = () => {
-        return this.props.dataChair.map((chairs, index) => {
-            if (index > 0) {
-                return chairs.danhSachGhe.map((chair) => {
-                    return <input key={chair.soGhe} onClick={() => {
-                        const action = {
-                            type: 'CHON_GHE',
-                            ticket: chair,
-                            isGo: chair.daDat = true
-                        }
-                        this.props.dispatch(action)
-                    }}
-                        className="col-1" type="checkbox" name='ticket' value={chair.soGhe} />
-                })
-            }
-        })
-    }
-    renderTicket = () => {
-        return this.props.chair.map((checked) => {
-            return <span key={checked.soGhe}>{checked.soGhe} </span>
-        })
-    }
+
     render() {
         return (
             <div>
@@ -51,27 +26,20 @@ class BuyMovieTicket extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className='ticket'>
-                                    <button style={{ backgroundColor: 'rgb(21, 185, 21)' }}></button> <h6 className='font-weight-bold'> Selected Seat</h6>
-                                    <button style={{ backgroundColor: 'red' }}></button> <h6 className='font-weight-bold'> Reserved Seat</h6>
-                                    <button tyle={{ backgroundColor: 'white' }}></button><h6 className='font-weight-bold'>Empty Seat</h6>
+                                    <button className='gheDangChon'></button> <h6 className='font-weight-bold'> Selected Seat</h6>
+                                    <button className='gheDuocChon'></button> <h6 className='font-weight-bold'> Reserved Seat</h6>
+                                    <button className='ghe'></button><h6 className='font-weight-bold'>Empty Seat</h6>
                                 </div>
 
-                                <h5 className='text-center my-4' style={{ backgroundColor: 'rgba(251, 75, 2, 1)', color: 'white' }}>
+                                <h5 className='text-center my-2' style={{ backgroundColor: 'rgba(251, 75, 2, 1)', color: 'white' }}>
                                     Please Select your Seats NOW!
                                 </h5>
-                                <div className="container check">
+                                <div className="container">
                                     <div className="row">
-                                        <div className="col-12 col-xl-12 m-auto">
-                                            <div className="row ">
-                                                <div className="col-1 col-xl-1">
-                                                    {this.renderCol()}
-                                                </div>
-                                                <div className="col-10 col-xl-11">
-                                                    <div className="row">
-                                                        {this.renderRow()}
-                                                        {this.renderChair()}
-                                                    </div>
-                                                </div>
+                                        <div className="col-12 text-center">
+                                            <div className='mt-1' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                                <div className='screen'></div>
+                                                {this.renderHangGhe()}
                                             </div>
                                         </div>
                                     </div>
@@ -88,32 +56,14 @@ class BuyMovieTicket extends Component {
                     </div>
                 </div>
                 <div className="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabIndex={-1}>
-                    <div className="modal-dialog modal-dialog-centered  modal-xl">
+                    <div className="modal-dialog modal-dialog-centered  modal-md">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalToggleLabel">Tickects</h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                             </div>
                             <div className="modal-body ">
-                                <table className="table table-dark table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Number of Seats</th>
-                                            <th scope="col">Seats</th>
-                                            <th scope="col">Total Money</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className="table-info">{(this.props.chair).length}</td>
-                                            <td className="table-info">{this.renderTicket()} </td>
-                                            <td className="table-info">
-                                                {(((this.props.chair).length) * 75000).toLocaleString()}vnđ
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
+                                <TickectInfo />
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="custom-btn btn-3"
@@ -131,7 +81,7 @@ class BuyMovieTicket extends Component {
 
 const mapStateToProps = (rootReducer) => {
     return {
-        chair: rootReducer.chairReducer
+        chair: rootReducer.chairReducer.danhSachGhe
     }
 
 }
