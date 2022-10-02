@@ -36,5 +36,23 @@
         "name": "SATAN'S SLAVES 2",
         "image": "https://cdn.galaxycine.vn/media/2022/9/14/450wx300h_1663145031072.jpg",
         "age": "C18"
+    },
+    {
+        "id":7,
+        "name": "MƯỜI: LỜI NGUYỀN TRỞ LẠI",
+        "image": "https://cdn.galaxycine.vn/media/2022/8/24/450wx300h_1661316480642.jpg",
+        "age": "C16"
+    },
+    {
+        "id":8,
+        "name": "SHIN ULTRAMAN",
+        "image": "https://cdn.galaxycine.vn/media/2022/9/27/ultraman_1664265724490.jpg",
+        "age": "C13"
+    },
+    {
+        "id":9,
+        "name": "EVANGELION:THRICE UPON A TIME",
+        "image": "https://cdn.galaxycine.vn/media/2022/9/23/1350wx900h_1663905914575.jpg",
+        "age": "C13"
     }
 ]
