@@ -22,7 +22,6 @@ class Chair extends Component {
           type:'DAT_VE',
           ticketMovie:chair
       }
-      console.log(chair)
       this.props.dispatch(action)
       }}
         disabled={disable} key={index} className={`ghe ${styleSelected} ${styleReserved}`}>

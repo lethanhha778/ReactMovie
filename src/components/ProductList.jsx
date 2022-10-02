@@ -10,7 +10,6 @@ export default class ProductList extends Component {
             movie:movieClick,
         })
     }
-
     renderMovie = () => {
         return this.props.movies.map((movie) => {
             return <div className="col-12 col-sm-6 col-lg-4 col-xl-4 pb-4"
