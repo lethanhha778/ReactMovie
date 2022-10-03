@@ -5,21 +5,17 @@ class Chair extends Component {
 
   renderChair = () => {
     return this.props.rowChair.danhSachGhe.map((chair, index) => {
-      let styleSelected = '';
+      let styleChair = '';
       let disable = false;
-      // chair.daDat = flase thì ko lọt vào đây
       if (chair.daDat) {
-        styleSelected = 'gheDuocChon'
+        styleChair = 'gheDuocChon'
         disable = true
       }
-      // flase thì chạy vô đây
-      let styleReserved = ''
-      let indexReserved = this.props.chairLists.findIndex((reserved,index) => 
-        reserved.soGhe === chair.soGhe)
-        if (indexReserved !== -1) {
-          styleReserved = 'gheDangChon'
+      let indexChair = this.props.chairLists.findIndex((indexChairList) =>
+        indexChairList.soGhe === chair.soGhe)
+      if (indexChair !== -1) {
+        styleChair = 'gheDangChon'
       }
-      
       return <button onClick={() => {
         const action = {
           type: 'BOOK_TICKET',
@@ -27,28 +23,14 @@ class Chair extends Component {
         }
         this.props.dispatch(action)
       }}
-        disabled={disable} key={index} 
-        className={`ghe ${styleSelected} ${styleReserved}`}>
+        disabled={disable} key={index}
+        className={`ghe ${styleChair}`}>
         {chair.soGhe}
       </button>
     })
   }
-
-  renderNumberRow = () => {
-    return this.props.rowChair.danhSachGhe.map((hang, index) => {
-      return <button className='rowNumber ' key={`hang ${index}`}>
-        {hang.soGhe}
-      </button>
-    })
-  }
-
   renderRowChair = () => {
-    if (this.props.indexRowChair === 0) {
-      return <div className='ml-4'>
-        {this.props.rowChair.hang} {this.renderNumberRow()}
-      </div>
-    }
-    else {
+    if (this.props.indexRowChair > 0) {
       return <div>
         {this.props.rowChair.hang} {this.renderChair()}
       </div>
