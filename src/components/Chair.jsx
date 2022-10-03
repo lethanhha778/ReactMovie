@@ -7,41 +7,45 @@ class Chair extends Component {
     return this.props.rowChair.danhSachGhe.map((chair, index) => {
       let styleSelected = '';
       let disable = false;
+      // chair.daDat = flase thì ko lọt vào đây
       if (chair.daDat) {
         styleSelected = 'gheDuocChon'
         disable = true
       }
+      // flase thì chạy vô đây
       let styleReserved = ''
-      let indexReserved = this.props.chairLists.findIndex(reserved => reserved.soGhe === chair.soGhe)
-      if(indexReserved !== -1){
-        styleReserved = 'gheDangChon'
+      let indexReserved = this.props.chairLists.findIndex((reserved,index) => 
+        reserved.soGhe === chair.soGhe)
+        if (indexReserved !== -1) {
+          styleReserved = 'gheDangChon'
       }
-
-      return <button onClick={() => { 
-        const action ={
-          type:'DAT_VE',
-          ticketMovie:chair
-      }
-      this.props.dispatch(action)
+      
+      return <button onClick={() => {
+        const action = {
+          type: 'BOOK_TICKET',
+          ticketMovie: chair
+        }
+        this.props.dispatch(action)
       }}
-        disabled={disable} key={index} className={`ghe ${styleSelected} ${styleReserved}`}>
+        disabled={disable} key={index} 
+        className={`ghe ${styleSelected} ${styleReserved}`}>
         {chair.soGhe}
       </button>
     })
   }
 
-  renderNumberRow  = () => {
-    return this.props.rowChair.danhSachGhe.map((hang,index) => {
+  renderNumberRow = () => {
+    return this.props.rowChair.danhSachGhe.map((hang, index) => {
       return <button className='rowNumber ' key={`hang ${index}`}>
         {hang.soGhe}
       </button>
     })
-
   }
+
   renderRowChair = () => {
     if (this.props.indexRowChair === 0) {
       return <div className='ml-4'>
-         {this.props.rowChair.hang} {this.renderNumberRow()}
+        {this.props.rowChair.hang} {this.renderNumberRow()}
       </div>
     }
     else {
@@ -50,6 +54,7 @@ class Chair extends Component {
       </div>
     }
   }
+
   render() {
     return (
       <div className='text-right ml-5 mt-3' style={{ fontSize: 18 }}>
@@ -59,8 +64,8 @@ class Chair extends Component {
   }
 }
 const mapStateToProps = (rootReducer) => {
-  return{ 
-    chairLists:rootReducer.movieReducer.chairLists
+  return {
+    chairLists: rootReducer.movieReducer.chairLists
   }
 }
 export default connect(mapStateToProps)(Chair)

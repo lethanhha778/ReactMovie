@@ -4,7 +4,7 @@ const chair = {
 }
 export const movieReducer = (state = chair, action) => {
     switch (action.type) {
-      case 'DAT_VE': 
+      case 'BOOK_TICKET': 
         let listChairClick = [...state.chairLists]
         let index = listChairClick.findIndex(chairClick => chairClick.soGhe === action.ticketMovie.soGhe);
         if (index !== -1) {
